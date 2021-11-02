@@ -13,6 +13,4 @@ app.get("/", (req, res) => {
 
 app.use("/api", comicRoutes);
 
-app.listen(port, () => {
-  console.log(`Example app listening @ http://localhost:${port}`);
-});
+app.listen('http://192.168.254.26:19000', () => {});
