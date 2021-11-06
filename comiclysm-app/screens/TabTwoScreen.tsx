@@ -3,6 +3,7 @@ import { StyleSheet, Button, VirtualizedList } from 'react-native';
 
 import EditScreenInfo from '../components/EditScreenInfo';
 import { Text, View } from '../components/Themed';
+import { Comic } from '../models/Comic';
 
 const ComicCard = ({ title }) => (
   <View>
@@ -25,9 +26,10 @@ export default function TabTwoScreen() {
     const response = await fetch("http://192.168.254.26:3000/api/comics");
 
     await response.json()
-    .then((any) =>{ 
+    .then((any: []) =>{ 
       console.log("Debug :" , any);
-      setComicList(any);
+      const comics = any.map((o) => { return new Comic(o.comic_id, o.comic_name, o.comic_writer, o.comic_artist, o.publication_data, o.comic_cover_img )})
+      setComicList(comics);
     })
     .catch((e) => {
       console.log("Error", e);
@@ -44,9 +46,9 @@ export default function TabTwoScreen() {
         initialNumToRender = { 0 }
         renderItem = { 
           ({item}) => 
-          <ComicCard title = { item.comic_name } />
+          <ComicCard title = { item.name } />
         }
-        keyExtractor = { comic => comic.comic_id }
+        keyExtractor = { comic => comic.id }
         getItem = { getComic }
         getItemCount = { getComicCount }
       >
