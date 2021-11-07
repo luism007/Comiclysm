@@ -7,10 +7,12 @@ export default function ComicCard ({ comic }: {comic: Comic})  {
         <View style = {styles.comicCardContainer }>
             <View style = {styles.comicCardImageContainer}></View>
             <View style = {styles.comicCardTitleContainer}>
-                <Text> { comic.name } </Text>
+                <Text style = { styles.comicTitle }> { comic.name } </Text>
             </View>
-            <View style = {styles.comicCardWriterContainer}>
-                <Text> { comic.writer } </Text>
+            <View style = {styles.comicCardInfo}>
+                <Text> Written by { comic.writer } </Text>
+                <Text> Illus. by { comic.artist }</Text>
+                <Text> Published on {comic.publicationDate} </Text>
             </View>
         </View>
     );
@@ -19,31 +21,44 @@ export default function ComicCard ({ comic }: {comic: Comic})  {
 const styles = StyleSheet.create({
 
     comicCardContainer: {
-        height: 300,
-        width: '90%',
-        borderStyle: 'solid',
-        borderColor: 'black',
-        borderRadius: 25,
-        color: 'black',
-        backgroundColor: 'pink',
         flex: 1,
+        margin: '2%',
+        height: 400,
+        width: '90%',
+        color: 'black',
+        borderRadius: 25,
+        borderWidth: 0.3,
         alignSelf: 'center',
         alignItems: 'stretch',
-        margin: '2%'
+        borderStyle: 'solid',
+        borderColor: 'black'
     },
     comicCardTitleContainer: {
-        flex: 1
+        flex: 1,
+        borderStyle: 'solid',
+        borderColor: 'gray',
+        borderWidth: 0.3,
+        justifyContent: 'center',
+        fontWeight: "bold",
+        paddingTop: 0,
+        paddingLeft: 10
+        
     },
     comicCardImageContainer: {
-        flex: 3,
+        flex: 4,
         backgroundColor: 'black',
-        borderTopRightRadius: 25,
-        borderTopLeftRadius: 25
+        borderTopRightRadius: 24,
+        borderTopLeftRadius: 24
     },
-    comicCardWriterContainer: {
-        flex: 1
+
+    comicTitle: {
+        fontWeight: "bold",
+        fontSize: 20
     },
-    comicCardPublicationDateContainer: {}
+    comicCardInfo: {
+        flex: 1,
+        padding: 10
+    }
 })
 
  

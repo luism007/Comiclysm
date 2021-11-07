@@ -23,7 +23,7 @@ export default function ComicList() {
         await response.json()
         .then((any: []) =>{
             const comics  = any.map((o) => {
-                return new Comic(o.comic_id, o.comic_name, o.comic_writer, o.comic_artist, o.publication_data, o.comic_cover_img);
+                return new Comic(o.comic_id, o.comic_name, o.comic_writer, o.comic_artist, o.comic_publication_date, o.comic_cover_img);
             });
             setComicList(comics);
             setRefreshing(false);
