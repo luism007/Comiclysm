@@ -4,12 +4,7 @@ import { StyleSheet, Button, VirtualizedList } from 'react-native';
 import EditScreenInfo from '../components/EditScreenInfo';
 import { Text, View } from '../components/Themed';
 import { Comic } from '../models/Comic';
-
-const ComicCard = ({ title }) => (
-  <View>
-    <Text> { title } </Text>
-  </View>
-);
+import ComicList from '../components/comic-list/ComicList';
 
 export default function TabTwoScreen() {
 
@@ -40,20 +35,7 @@ export default function TabTwoScreen() {
     <View style={styles.container}>
       <Text style={styles.title}>Tab Two</Text>
       <View style={styles.separator} lightColor="#eee" darkColor="rgba(255,255,255,0.1)" />
-
-      <VirtualizedList
-        data = { comicList }
-        initialNumToRender = { 0 }
-        renderItem = { 
-          ({item}) => 
-          <ComicCard title = { item.name } />
-        }
-        keyExtractor = { comic => comic.id }
-        getItem = { getComic }
-        getItemCount = { getComicCount }
-      >
-
-      </VirtualizedList>
+      <ComicList/>
       <Button 
         title="Get Comics"
         color="#f194ff"
