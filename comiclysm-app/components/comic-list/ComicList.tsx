@@ -40,13 +40,12 @@ export default function ComicList() {
 
     return(
         <View style = { comicListStyles.container }>
-            <Text>Comic List </Text>
             <VirtualizedList
             data = { comicList }
             initialNumToRender = { 0 }
             renderItem = { 
             ({item}) => 
-            <ComicCard title = { item.name } />
+            <ComicCard comic = { item } />
             }
             keyExtractor = { comic => comic.id }
             getItem = { getComic }
