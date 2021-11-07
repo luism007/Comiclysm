@@ -35,6 +35,7 @@ export default function ComicList() {
 
     const onRefresh = () => {
         setRefreshing(true);
+        console.log('Test');
         getComics();
     }
 
