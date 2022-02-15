@@ -12,5 +12,5 @@ app.get("/", (req, res) => {
 });
 
 app.use("/api", comicRoutes);
-// exp://127.0.0.1:19000
-app.listen(`${port}`, "192.168.254.26");
+// exp://192.168.0.207:19000
+app.listen(`${port}`, "192.168.0.207");

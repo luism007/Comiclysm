@@ -19,7 +19,7 @@ export default function ComicList() {
     }
 
     const getComics = async() => {
-        const response = await fetch("http://192.168.254.26:3000/api/comics");
+        const response = await fetch("http://192.168.0.207:3000/api/comics");
         await response.json()
         .then((any: []) =>{
             const comics  = any.map((o) => {
